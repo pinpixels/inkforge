@@ -1,13 +1,91 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Inkforge by PinPixels</title>
-<style>:root{--ink:#e9ecf5;--muted:#a3abbd;--bg:#0d1018;--acc:#8ba4ff}@media (prefers-color-scheme:light){:root{--ink:#1d2127;--muted:#5d6470;--bg:#fbfaf7;--acc:#3557e0}}
-body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 "Inter","Segoe UI",system-ui,sans-serif}main{max-width:680px;margin:0 auto;padding:64px 20px}
-h1{font-size:40px;margin:0 0 6px;letter-spacing:-.02em}p{color:var(--muted)}a{color:var(--acc)}.links a{margin-right:16px}
-.brand{display:flex;align-items:center;gap:10px;margin-bottom:28px}.brand img{width:40px;height:40px;border-radius:9px}.brand strong{font-size:18px}</style></head>
-<body><main>
-<p class="brand"><img src="img/icon48.png" alt=""><strong>PinPixels</strong></p>
-<h1>Inkforge</h1>
-<p>A free Chrome extension that turns PDFs and Markdown into polished, Medium-ready articles, with diagrams, tables and code redrawn as modern images.</p>
-<p class="links"><a href="[CHROME WEB STORE LINK]">Get it on the Chrome Web Store</a> <a href="https://buymeacoffee.com/pinpixelsp">☕ Buy me a coffee</a></p>
-<p class="links"><a href="privacy.html">Privacy policy</a> <a href="terms.html">Terms of use</a></p>
-<p style="font-size:13px">Inkforge is an independent tool by PinPixels and is not affiliated with or endorsed by Medium.</p>
-</main></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Inkforge</title><meta name="description" content="Turn PDFs and Markdown into polished, Medium-ready articles, with diagrams, tables and code redrawn as modern images."><link rel="icon" href="img/icon48.png">
+<style>:root{--bg:#fbfbfa;--surface:#fff;--fg:#14181f;--muted:#5b6472;--line:#e5e7eb;--accent:#3557e0;--accent-ink:#fff;--soft:#e8edff;--radius:14px;--shadow:0 1px 2px rgba(16,24,40,.04),0 1px 3px rgba(16,24,40,.06)}
+@media (prefers-color-scheme:dark){:root{--bg:#0b0d12;--surface:#12151c;--fg:#eef0f4;--muted:#9aa3b2;--line:#232834;--soft:#1b2130;--shadow:0 1px 2px rgba(0,0,0,.3),0 4px 12px rgba(0,0,0,.35)}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+header{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+@supports (backdrop-filter:blur(1px)){header{background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(10px)}}
+header .wrap{max-width:860px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:14px}
+header a.brand{display:flex;align-items:center;gap:9px;color:var(--fg);font-weight:650}
+header nav{margin-left:auto;display:flex;gap:20px;font-size:14.5px;font-weight:550}
+main{max-width:860px;margin:0 auto;padding:0 20px}
+.hero{padding:64px 0 24px}
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--soft);color:var(--accent);font-size:13px;font-weight:650;padding:5px 12px;border-radius:999px;margin-bottom:18px}
+h1{font-size:clamp(1.9em,5vw,2.5em);line-height:1.14;margin:0 0 14px;letter-spacing:-.025em;font-weight:800}
+.sub{color:var(--muted);font-size:1.12em;max-width:58ch;margin:0 0 26px}
+.btn{display:inline-flex;align-items:center;gap:8px;margin:0 10px 10px 0;padding:12px 22px;border-radius:11px;background:var(--accent);color:var(--accent-ink)!important;font-weight:650;box-shadow:var(--shadow);transition:transform .15s ease}
+.btn:hover{transform:translateY(-1px);text-decoration:none}
+.btn.ghost{background:var(--surface);color:var(--fg)!important;border:1px solid var(--line);box-shadow:none}
+.coffee{margin:16px 0 0}.coffee img{display:block;border-radius:8px}
+.banner{display:block;width:100%;height:auto;border-radius:var(--radius);margin:28px 0 0;box-shadow:var(--shadow)}
+h2{font-size:1.45em;letter-spacing:-.01em;margin:2.6em 0 .6em;font-weight:750}
+.why{color:var(--muted);font-size:1.05em;max-width:62ch}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;box-shadow:var(--shadow);transition:transform .15s ease}
+.card:hover{transform:translateY(-2px)}
+.card strong{display:block;margin-bottom:6px;font-size:15.5px;color:var(--fg)}
+.card p{margin:0;color:var(--muted);font-size:14.5px;line-height:1.55}
+.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.shots figure{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.shots img{display:block;width:100%;height:auto}
+.shots figcaption{padding:10px 14px;font-size:13.5px;color:var(--muted)}
+.themes{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 0}
+.themes span{background:var(--soft);border-radius:999px;padding:5px 13px;font-size:13.5px;color:var(--fg)}
+footer{border-top:1px solid var(--line);margin-top:56px;padding:26px 20px 56px;color:var(--muted);font-size:14px}
+footer .wrap{max-width:860px;margin:0 auto;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
+.legal{font-size:13px;margin-top:16px}
+img.icon{border-radius:10px}
+</style></head>
+<body>
+<header><div class="wrap"><a class="brand" href="index.html"><img class="icon" src="img/icon48.png" width="28" height="28" alt=""><strong>Inkforge</strong></a><nav><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="https://www.buymeacoffee.com/pinpixelsp" target="_blank" rel="noopener">☕ Coffee</a></nav></div></header>
+<main>
+
+<div class="hero">
+<span class="badge">Free · No account needed</span>
+<h1>Turn PDFs and Markdown into polished Medium articles</h1>
+<p class="sub">Every diagram, table and code block is redrawn as a crisp, modern image — so your article looks designed, not pasted.</p>
+<a class="btn" href="[CHROME WEB STORE LINK]">Add to Chrome — free</a>
+<p class="coffee"><a href="https://www.buymeacoffee.com/pinpixelsp" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" style="height: 60px !important;width: 217px !important;"></a></p>
+<img class="banner" src="img/promo-marquee-1400x560.png" alt="Inkforge: PDF and Markdown to polished articles with modern diagrams">
+</div>
+
+<h2>Why Inkforge</h2>
+<p class="why">Medium can't display tables, ASCII diagrams, Mermaid charts or highlighted code — and pasting a PDF loses its structure entirely. Inkforge rebuilds that structure and redraws the visuals, then shows a Medium-accurate preview you can edit in place before you paste it in, piece by piece.</p>
+
+<h2>What it does</h2>
+<div class="grid">
+<div class="card"><strong>Import from anywhere</strong><p>PDF, Markdown, text or HTML files, or paste straight from Google Docs, Word, Notion or any web page — headings, lists, tables, links and images stay intact.</p></div>
+<div class="card"><strong>True PDF recovery</strong><p>Headings, bold text, callouts, lists, tables, code blocks and indentation are recovered, not just dumped as flat text.</p></div>
+<div class="card"><strong>Diagrams rebuilt, not flattened</strong><p>ASCII and box-drawing diagrams are reconstructed even when the source PDF collapsed them onto one line.</p></div>
+<div class="card"><strong>Modern redrawn visuals</strong><p>Diagrams, tables, code, file trees and cover images are redrawn as crisp 1400px Retina PNGs, in 5 selectable themes.</p></div>
+<div class="card"><strong>Diagram Studio</strong><p>Edit any diagram as plain text with a live preview — no separate design tool needed.</p></div>
+<div class="card"><strong>Tag Radar</strong><p>Suggests a balanced mix of 5 Medium tags — broad, best-fit and niche — entirely offline.</p></div>
+<div class="card"><strong>Medium-ready formatting</strong><p>Two heading levels, split long paragraphs, captions, alt text and an estimated read time, matched to how Medium renders.</p></div>
+<div class="card"><strong>Paste panel</strong><p>Opens a new Medium story with every part listed, ready to insert or copy one piece at a time.</p></div>
+<div class="card"><strong>Publish anywhere</strong><p>Copy as rich text for Medium, Substack, Ghost or LinkedIn, or publish images to your own GitHub Pages first.</p></div>
+<div class="card"><strong>Optional AI assist</strong><p>Bring your own key — Claude, an OpenAI-compatible endpoint, or a local Ollama server — with an automatic AI-disclosure line added for you.</p></div>
+</div>
+<p class="themes"><span>Steel</span><span>Ink</span><span>Ember</span><span>Light</span><span>Dark</span></p>
+
+<h2>See it in action</h2>
+<div class="shots">
+<figure><img src="img/screenshot-01-convert-1280x800.png" alt="Converting a PDF in Inkforge"><figcaption>Drop a file, Inkforge converts it</figcaption></figure>
+<figure><img src="img/screenshot-02-diagrams-1280x800.png" alt="Diagrams redrawn as modern images"><figcaption>Diagrams, tables and code redrawn</figcaption></figure>
+<figure><img src="img/screenshot-03-editor-1280x800.png" alt="In-place editor"><figcaption>Edit any part in place</figcaption></figure>
+<figure><img src="img/screenshot-04-tags-1280x800.png" alt="Tag Radar suggesting tags"><figcaption>Tag Radar suggests a tag mix</figcaption></figure>
+<figure><img src="img/screenshot-05-publish-1280x800.png" alt="Publishing to Medium"><figcaption>Paste it into Medium piece by piece</figcaption></figure>
+</div>
+
+<h2>Private by design</h2>
+<p>Everything runs in your browser. No account, no tracking, no server — Inkforge sends nothing to its developer. Optional features (AI assist, GitHub publishing) talk only to the services <em>you</em> configure, with your own keys. See the <a href="privacy.html">privacy policy</a> for the full details.</p>
+
+</main>
+<footer><div class="wrap">
+<p style="margin:0">Inkforge · by PinPixels</p>
+<p style="margin:0"><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="https://www.buymeacoffee.com/pinpixelsp" target="_blank" rel="noopener">☕ Coffee</a></p>
+</div>
+<div class="wrap"><p class="legal" style="margin:0">Inkforge is a free, independent tool by PinPixels and is not affiliated with, endorsed by, or sponsored by Medium (A Medium Corporation). "Medium" is a trademark of its owner, used here only to describe compatibility.</p></div>
+</footer>
+</body></html>
